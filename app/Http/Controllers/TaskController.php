@@ -3,12 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
+use Stevebauman\Location\Facades\Location; //detects location
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Task; // Importing the Task model
 use App\Http\Requests\Task\StoreRequest; // Importing the StoreRequest form request
 use App\Http\Requests\Task\UpdateRequest; // Importing the UpdateRequest form request
+
+//Method to access location
+class HomeController extends Controller
+{
+    public function index()
+    {
+        if ($position = Location::get()) {
+            // Successfully retrieved position.
+            echo $position->countryName;
+        } else {
+            // Failed retrieving position.
+        }
+    }
+}
+
+
 
 class TaskController extends Controller
 {
