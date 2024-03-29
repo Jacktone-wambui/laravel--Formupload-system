@@ -34,7 +34,7 @@
                             @forelse ($unCompletedTasks as $task)
                             <tr>
                                 <!-- Display task content -->
-                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+                                <td class="border-b border-slate-100 p-4 pl-8 text-slate-500">
                                     <!-- Checkbox to mark task as completed -->
                                     <a class="mr-1 text-lg" href="{{ route('tasks.mark-completed', $task->id) }}">
                                         🔲
@@ -55,7 +55,7 @@
                                     </span>
                                 </td>
                                 <!-- Actions for the task -->
-                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+                                <td class="border-b border-slate-100 p-4 pl-8 text-slate-500">
                                     <!-- Link to edit task -->
                                     <a href="{{ route('tasks.edit', $task->id) }}" class="border border-yellow-500 hover:bg-yellow-500 hover:text-white px-4 py-2 rounded-md">EDIT</a>
                                     <!-- Form to delete task -->
@@ -69,7 +69,7 @@
                             @empty
                             <!-- Display message if no uncompleted tasks -->
                             <tr>
-                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400" colspan="2">
+                                <td class="border-b border-slate-100 p-4 pl-8 text-slate-500" colspan="2">
                                     No data can be shown.
                                 </td>
                             </tr>
@@ -95,7 +95,7 @@
                             {{-- populate our task data --}}
                             @forelse ($completedTasks as $task)
                             <tr>
-                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400 justify-center items-center">
+                                <td class="border-b border-slate-100 p-4 pl-8 text-slate-500 justify-center items-center">
                                     <a class="mr-1 text-lg" href="{{ route('tasks.mark-uncompleted', $task->id) }}">
                                         ✅
                                     </a>
@@ -114,7 +114,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400" colspan="2">
+                                <td class="border-b border-slate-100 p-4 pl-8 text-slate-500" colspan="2">
                                     No data can be shown.
                                 </td>
                             </tr>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'FormUpload') }}</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -13,32 +13,33 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
+        <x-banner />
+
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            @livewire('navigation-menu')
 
             <!-- Page Heading -->
-@if (isset($header))
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            {{ $header }}
-
-            {{-- check if there is a notif.success flash session --}}
-            @if (Session::has('notif.success'))
-            <div class="bg-blue-300 mt-2 p-4">
-                {{-- if it's there then print the notification --}}
-                <span class="text-white">{{ Session::get('notif.success') }}</span>
-            </div>
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
             @endif
-        </div>
-    </header>
-@endif
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
         </div>
+
+        @stack('modals')
+
+        @livewireScripts
     </body>
 </html>
